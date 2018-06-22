@@ -1,0 +1,3 @@
+var grpc = require('grpc')
+var { Monitor} = grpc.load('./protos/application-monitor.proto')
+var client = new Monitor('0.0.0.0:50051', grpc.credentials.createInsecure())

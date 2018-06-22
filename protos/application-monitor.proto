@@ -1,0 +1,22 @@
+syntax = 'proto3';
+
+service Monitor {
+  rpc start(Application) returns (Status) {}
+  rpc stop(Application) returns (Status) {}
+  rpc restart(Application) returns (Status) {}
+  rpc status(Application) returns (Status) {}
+}
+
+enum State {
+  RUNNING = 0;
+  STOPPED = 1;
+}
+
+message Application {
+  string name = 1;
+}
+
+message Status {
+  string name = 1;
+  State state = 2;
+}
